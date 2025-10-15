@@ -3,7 +3,7 @@ import json
 
 class BaseDB:
     def __init__(self):
-        self.basepath = "Bitcoin/Data"
+        self.basepath = "data"
         os.makedirs(self.basepath, exist_ok=True)
         self.filepath = "/".join((self.basepath, self.filename))
 
@@ -34,7 +34,7 @@ class BaseDB:
 
 class BlockchainDB(BaseDB):
     def __init__(self):
-        self.filename = "blockchain"
+        self.filename = "blockchain.json"
         super().__init__()
 
     def lastBlock(self):
