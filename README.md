@@ -1,2 +1,2 @@
-# Intro-to-Blockchain-Crypto
+# Intro to Blockchain Crypto
 Getting into crypto (blockchain) software development
