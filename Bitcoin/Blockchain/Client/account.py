@@ -29,7 +29,7 @@ class account:
         """Checksum"""
         checksum = hash256(newAddr)[:4]
         newAddr = newAddr + checksum
-        BASE58_ALPHABET = '123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'
+        BASE58_ALPHABET = "123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz"
 
         count = 0
 
@@ -40,9 +40,9 @@ class account:
                 break
 
         num = int.from_bytes(newAddr, byteorder='big')
-        prefix = '1' * count
+        prefix = "1" * count
 
-        result = ''
+        result = ""
 
         while num > 0:
             num, mod = divmod(num, 58)

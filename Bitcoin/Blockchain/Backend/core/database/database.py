@@ -34,7 +34,7 @@ class BaseDB:
 
 class BlockchainDB(BaseDB):
     def __init__(self):
-        self.filename = "blockchain.json"
+        self.filename = "blockchain"
         super().__init__()
 
     def lastBlock(self):
