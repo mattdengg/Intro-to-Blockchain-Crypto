@@ -30,19 +30,13 @@ class Blockchain:
     def addBlock(self, BlockHeight, prevBlockHash):
         timestamp = int(time.time())
         coinbaseInstance = CoinbaseTx(BlockHeight)
-        coinbaseTx = coinbaseInstance.CoinbaseTransaction().to_dict()
+        coinbaseTx = coinbaseInstance.CoinbaseTransaction()
 
-        merkleRoot = ' '
+        merkleRoot = coinbaseTx.TxId
         bits = 'ffff001f'
         blockheader = BlockHeader(VERSION, prevBlockHash, merkleRoot, timestamp, bits)
         blockheader.mine()
-        self.write_on_disk(
-            [
-                Block(
-                    BlockHeight, 1, blockheader.__dict__, 1, coinbaseTx
-                ).__dict__
-            ]
-        )
+        self.write_on_disk([Block(BlockHeight, 1, blockheader.__dict__, 1, coinbaseTx.to_dict()).__dict__])
 
     def main(self):
         while True:
